@@ -1,0 +1,7 @@
+Tip1:
+
+1. if we use nextLine() right after any nextXXXX() then we will get empty display. nextLine() will use new line and print that, to avoid it use 
+a 'sc.nextLine();' just before taking input from user
+
+2. formatter, left justified formatter for string is %-15s -> 15 spaces are left justified due to '-'
+	for integer to print 2 digit number(64) in 3 digit form(064) use: %03d for 4 digit display use %04d
