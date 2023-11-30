@@ -52,7 +52,8 @@ public class SLLTest {
 					}
 
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+//				System.out.println(e.getMessage());
+				e.printStackTrace();
 				sc.nextLine();
 			}
 		}

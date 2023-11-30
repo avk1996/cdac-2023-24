@@ -33,24 +33,23 @@ public class SortedInSLL {
 				addLast(data);
 			else
 				addFirst(data);
+		}
+//		special case if a element is smaller than head element
+		else if (data <= head.data) {
+			System.out.println("before head...");
+			addFirst(data);
 		} else {
-//			special case if a element is smaller than head element
-			if (data <= head.data) {
-				System.out.println("before head...");
-				addFirst(data);
-			} else {
-				Node trav = head;
-				Node temp = null;
-				while (trav != null) {
-					if (data >= trav.data) {
-						temp = trav;
-						trav = trav.next;
-					} else
-						break;
-				}
-				newNode.next = trav;
-				temp.next = newNode;
+			Node trav = head;
+			Node temp = null;
+			while (trav != null) {
+				if (data >= trav.data) {
+					temp = trav;
+					trav = trav.next;
+				} else
+					break;
 			}
+			newNode.next = trav;
+			temp.next = newNode;
 		}
 	}
 
@@ -92,24 +91,25 @@ public class SortedInSLL {
 	}
 
 	public void addAll(List<Integer> intList) {
-		for(int i=0;i<intList.size();i++) {
+		for (int i = 0; i < intList.size(); i++) {
 			addSorted(intList.get(i));
-		}	
-	}
-//pending
-	public void remove(int nextInt) {
-		if(isEmptyList())
-			throw new RuntimeException("List is empty...");
-		else if(head.next == null)
-			head = null;
-		else {
-			Node trav = head;
-			for(int i=1;i<nextInt-1;i++) {
-				trav = trav.next;
-			}
-			trav.next.next = trav.next;
 		}
 	}
-	
-	
+
+	public void remove(int nextInt) {
+		if (isEmptyList())
+			throw new RuntimeException("List is empty...");
+		else if (head.next == null || nextInt <= 1)
+			head = head.next;
+		else {
+			Node trav = head;
+			for (int i = 1; i < nextInt - 1; i++) {
+				if(trav.next.next == null)
+					break;
+				trav = trav.next;
+			}
+			trav.next = trav.next.next;
+		}
+	}
+
 }
