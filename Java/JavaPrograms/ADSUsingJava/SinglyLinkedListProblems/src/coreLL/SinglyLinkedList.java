@@ -127,7 +127,8 @@ public class SinglyLinkedList {
 					head = null;
 					System.out.println("general: single node");
 				} else {
-					head.next = head.next.next;
+//					head.next = head.next.next;
+					head = head.next;
 					System.out.println("general: multiple node");
 				}
 			}
