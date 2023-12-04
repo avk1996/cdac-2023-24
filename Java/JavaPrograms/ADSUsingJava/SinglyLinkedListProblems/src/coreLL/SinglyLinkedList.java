@@ -135,5 +135,29 @@ public class SinglyLinkedList {
 			return head;
 		}
 	}
+	
+	public boolean isPalindrome() {
+        Node trav = head;
+        int nodeCount = 0;
+        while(trav!=null){
+            nodeCount++;
+            trav = trav.next;
+        }
+        int[] array = new int[nodeCount];
+        for(int i=0;i<nodeCount;i++){
+            array[i] = head.data;
+            head = head.next;
+        }
+
+        int i=0,j=nodeCount-1;
+        while(i<nodeCount){
+            if(array[i]!=array[j]){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
 
 }

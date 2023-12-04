@@ -18,7 +18,9 @@ public class LLTest {
 				try {
 					System.out.println("Operations\n1. Add last\n2. remove all\n3. Reverse\n"
 							+ "4. Display all\n5. Add at Position\n6. Add at once\n"
-							+ "7. Remove a number and its duplicates0. EXIT\n");
+							+ "7. Remove a number and its duplicates\n"
+							+ "8. Check palindrom\n"
+							+ "0. EXIT\n");
 					switch (sc.nextInt()) {
 					case 1:
 						System.out.println("Add last operations: ");
@@ -28,6 +30,7 @@ public class LLTest {
 					case 2:
 						System.out.println("remove all operations: ");
 						ll.removeAll();
+						intList.clear();
 						break;
 					case 3:
 						System.out.println("Reverse list: ");
@@ -55,6 +58,13 @@ public class LLTest {
 						System.out.println("Remove a number and its duplicates");
 						System.out.println("Enter a number you want to delete: ");
 						ll.removeElements(sc.nextInt());
+						break;
+					case 8:
+						System.out.println("find if the linked list is palindrom or not");
+						if(ll.isPalindrome())
+							System.out.println("Given linked list is palindrom");
+						else
+							System.out.println("Given linked list is NOT palindrom");
 						break;
 					case 0:
 						System.out.println("Exit");
